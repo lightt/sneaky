@@ -51,8 +51,9 @@ public class ServiceDescriptor {
                 if (config.keyspace == null)
                     throw new ConfigurationException("Keyspace must be configured");
 
-                cassConfigurator = new CassandraHostConfigurator(StringUtils.join(config.cassandra_cluster, ","));
-                cassCluster = HFactory.getOrCreateCluster("sneaky-cluster", cassConfigurator);
+                CassandraHostConfigurator c = new CassandraHostConfigurator(
+                        StringUtils.join(config.cassandra_cluster, ","));
+                replaceCassandra(c);
             }
         } catch (YAMLException e) {
             logger.error("Fatal configuration exception", e);
@@ -91,5 +92,10 @@ public class ServiceDescriptor {
     public static Keyspace keyspace()
     {
         return HFactory.createKeyspace(config.keyspace, cassCluster);
+    }
+
+    public static void replaceCassandra(CassandraHostConfigurator configurator) {
+        cassConfigurator = configurator;
+        cassCluster = HFactory.getOrCreateCluster("sneaky-cluster", cassConfigurator);
     }
 }

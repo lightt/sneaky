@@ -1,20 +1,24 @@
 package com.ficture.sneaky.test;
 
 import junit.framework.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import com.ficture.sneaky.thrift.*;
 
 import com.ficture.sneaky.service.SneakyService;
 
-public class ServicePingTest
+public class ServicePingTest extends BaseEmbeddedServerTest
 {
     private SneakyService service;
 
     @Before
-    public void setUp() {
+    public void before() {
         service = new SneakyService();
+    }
+
+    @After
+    public void after() {
+        service = null;
     }
 
     @Test

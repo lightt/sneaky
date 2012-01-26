@@ -55,6 +55,16 @@
             <version>1.0-1</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.cassandra</groupId>
+            <artifactId>cassandra-all</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>me.prettyprint</groupId>
+            <artifactId>hector-test</artifactId>
+            <version>1.0-1</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.thrift</groupId>
             <artifactId>libthrift</artifactId>
             <version>0.6.1</version>
