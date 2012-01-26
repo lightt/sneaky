@@ -1,0 +1,7 @@
+rpc_port: 9009
+rpc_address: localhost
+
+cassandra_cluster:
+    - localhost:9160
+
+keyspace: lolficture
