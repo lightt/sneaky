@@ -31,7 +31,7 @@ public abstract class BaseEmbeddedServerTest extends AbstractCassandraUnit4TestC
     protected String clusterName = "TestCluster";
 
     protected void setupClient() {
-        cassandraHostConfigurator = new CassandraHostConfigurator("127.0.0.1:9170");
+        cassandraHostConfigurator = new CassandraHostConfigurator("127.0.0.1:9171");
         connectionManager = new HConnectionManager(clusterName,cassandraHostConfigurator);
         ServiceDescriptor.replaceCassandra(cassandraHostConfigurator);
     }
